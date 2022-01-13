@@ -1,14 +1,7 @@
-/*
- * Copyright (c) BGHDDevelopment.
- * Please refer to the plugin page or GitHub page for our open-source license.
- * If you have any questions please email ceo@bghddevelopment or reach us on Discord
- */
-
-package com.bghddevelopment.LuckPemsGUI.users;
-
+package com.master86.Luckpermsgui.users;
 import java.util.Arrays;
 
-import com.bghddevelopment.LuckPemsGUI.util.Tools;
+import com.master86.Luckpermsgui.util.Tools;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.group.Group;
@@ -40,7 +33,7 @@ public class Wipe implements Listener {
 
             ItemStack back = Tools.button(Material.BARRIER, "&6Back", Arrays.asList(""), 1);
             myInventory.setItem(7, back);
-            ItemStack confirm = Tools.button(Material.SIGN, "&2&lCONFIRM", Arrays.asList("&ePress when everything selected", "&cThis will take some time!!"), 1);
+            ItemStack confirm = Tools.button(Material.DARK_OAK_WALL_SIGN, "&2&lCONFIRM", Arrays.asList("&ePress when everything selected", "&cThis will take some time!!"), 1);
             myInventory.setItem(8, confirm);
 
         });
