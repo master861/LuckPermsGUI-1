@@ -1,5 +1,4 @@
-package com.bghddevelopment.LuckPemsGUI.util;
-
+package com.master86.Luckpermsgui.util;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -733,16 +732,14 @@ public class Metrics {
          *
          * @param key The key of the field.
          * @param values The integer array.
-         * @return A reference to this object.
          */
-        public JsonObjectBuilder appendField(String key, int[] values) {
+        public void appendField(String key, int[] values) {
             if (values == null) {
                 throw new IllegalArgumentException("JSON values must not be null");
             }
             String escapedValues =
                     Arrays.stream(values).mapToObj(String::valueOf).collect(Collectors.joining(","));
             appendFieldUnescaped(key, "[" + escapedValues + "]");
-            return this;
         }
 
         /**
@@ -750,16 +747,14 @@ public class Metrics {
          *
          * @param key The key of the field.
          * @param values The integer array.
-         * @return A reference to this object.
          */
-        public JsonObjectBuilder appendField(String key, JsonObject[] values) {
+        public void appendField(String key, JsonObject[] values) {
             if (values == null) {
                 throw new IllegalArgumentException("JSON values must not be null");
             }
             String escapedValues =
                     Arrays.stream(values).map(JsonObject::toString).collect(Collectors.joining(","));
             appendFieldUnescaped(key, "[" + escapedValues + "]");
-            return this;
         }
 
         /**
