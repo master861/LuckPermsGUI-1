@@ -1,15 +1,8 @@
-/*
- * Copyright (c) BGHDDevelopment.
- * Please refer to the plugin page or GitHub page for our open-source license.
- * If you have any questions please email ceo@bghddevelopment or reach us on Discord
- */
-
-package com.bghddevelopment.LuckPemsGUI.commands;
-
-import com.bghddevelopment.LuckPemsGUI.groups.EditGroup;
-import com.bghddevelopment.LuckPemsGUI.tracks.EditTrack;
-import com.bghddevelopment.LuckPemsGUI.users.EditUser;
-import com.bghddevelopment.LuckPemsGUI.util.OpenGUI;
+package com.master86.Luckpermsgui.commands;
+import com.master86.Luckpermsgui.groups.EditGroup;
+import com.master86.Luckpermsgui.tracks.EditTrack;
+import com.master86.Luckpermsgui.users.EditUser;
+import com.master86.Luckpermsgui.util.OpenGUI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -22,13 +15,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class LPGUICommand implements CommandExecutor, Listener {
 
     static LuckPerms l = LuckPermsProvider.get();
 
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
 
         if (!(sender instanceof Player)) {
             sm(sender, "&cThis command can be done only by player");
