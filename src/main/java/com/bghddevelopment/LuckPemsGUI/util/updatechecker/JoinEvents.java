@@ -1,12 +1,6 @@
-/*
- * Copyright (c) BGHDDevelopment.
- * Please refer to the plugin page or GitHub page for our open-source license.
- * If you have any questions please email ceo@bghddevelopment or reach us on Discord
- */
+package com.master86.Luckpermsgui.util.updatechecker;
 
-package com.bghddevelopment.LuckPemsGUI.util.updatechecker;
-
-import com.bghddevelopment.LuckPemsGUI.LuckPermsGUI;
+import com.master86.Luckpermsgui.Luckpermsgui;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,9 +8,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class JoinEvents implements Listener {
-    private LuckPermsGUI plugin;
+    private final Luckpermsgui plugin;
 
-    public JoinEvents(LuckPermsGUI plugin) {
+    public JoinEvents(Luckpermsgui plugin) {
         this.plugin = plugin;
     }
 
