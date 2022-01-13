@@ -1,14 +1,7 @@
-/*
- * Copyright (c) BGHDDevelopment.
- * Please refer to the plugin page or GitHub page for our open-source license.
- * If you have any questions please email ceo@bghddevelopment or reach us on Discord
- */
-
-package com.bghddevelopment.LuckPemsGUI.events;
-
-import com.bghddevelopment.LuckPemsGUI.groups.GroupsGUI;
-import com.bghddevelopment.LuckPemsGUI.tracks.TracksGUI;
-import com.bghddevelopment.LuckPemsGUI.users.UsersGUI;
+package com.master86.Luckpermsgui.events;
+import com.master86.Luckpermsgui.groups.GroupsGUI;
+import com.master86.Luckpermsgui.tracks.TracksGUI;
+import com.master86.Luckpermsgui.users.UsersGUI;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
