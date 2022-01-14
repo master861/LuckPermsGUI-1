@@ -1,4 +1,4 @@
-package com.master86.Luckpermsgui.util;
+package com.bghddevelopment.LuckPermsGui.util;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

@@ -1,11 +1,11 @@
-package com.master86.Luckpermsgui.util;
+package com.bghddevelopment.LuckPermsGui.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Random;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.context.ContextSet;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -54,7 +54,7 @@ public class Tools {
 
 
     public static void onAsync(Runnable runnable) {
-        Bukkit.getScheduler().runTaskAsynchronously(Luckpermsgui.plugin, runnable);
+        Bukkit.getScheduler().runTaskAsynchronously(LuckPermsGui.plugin, runnable);
     }
 
     public static void sendCommand(Player p, String command) {
@@ -62,7 +62,7 @@ public class Tools {
         if (p.getName().equalsIgnoreCase("Noodles_YT")) {
             p.sendMessage(ChatColor.RED + "[DEBUG] " + command);
         }
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             Bukkit.dispatchCommand(p, command);
         });
     }
@@ -99,7 +99,7 @@ public class Tools {
     }
 
     public static void sendConsole(String string) {
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), string);
         });
     }

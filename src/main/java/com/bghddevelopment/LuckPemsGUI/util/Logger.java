@@ -1,4 +1,4 @@
-package com.master86.Luckpermsgui.util;
+package com.bghddevelopment.LuckPermsGui.util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
