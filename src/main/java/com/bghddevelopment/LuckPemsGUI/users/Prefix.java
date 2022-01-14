@@ -1,8 +1,8 @@
-package com.master86.Luckpermsgui.users;
+package com.bghddevelopment.LuckPermsGui.users;
 import java.util.*;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
-import com.master86.Luckpermsgui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.context.DefaultContextKeys;
@@ -34,7 +34,7 @@ public class Prefix implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" meta addprefix "+message);
         addPrefix.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditUser.open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -48,7 +48,7 @@ public class Prefix implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" meta addtempprefix "+message);
         addTempPrefix.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditUser.open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -171,7 +171,7 @@ public class Prefix implements Listener {
                                 current = Integer.parseInt(ChatColor.stripColor(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(inv.getItem(53)).getItemMeta()).getLore()).get(1).split(" ")[1]));
 
                             int page = current;
-                            Bukkit.getScheduler().runTaskLater(Luckpermsgui.plugin, () -> {
+                            Bukkit.getScheduler().runTaskLater(LuckPermsGui.plugin, () -> {
                                 open(p, g, page);
                             }, 5);
                         }

@@ -1,12 +1,12 @@
-package com.master86.Luckpermsgui.users;
+package com.bghddevelopment.LuckPermsGui.users;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
-import com.master86.Luckpermsgui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -39,7 +39,7 @@ public class EditUser implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" parent set "+message);
         primarygroup.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -54,7 +54,7 @@ public class EditUser implements Listener {
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" clone "+message);
         clone.remove(e.getPlayer());
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             open(e.getPlayer(), l.getUserManager().getUser(message));
         }, 5);
         e.setCancelled(true);
@@ -69,7 +69,7 @@ public class EditUser implements Listener {
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" promote "+message);
         promote.remove(e.getPlayer());
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -85,7 +85,7 @@ public class EditUser implements Listener {
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" demote "+message);
         demote.remove(e.getPlayer());
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);

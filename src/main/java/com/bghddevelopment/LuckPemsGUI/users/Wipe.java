@@ -1,7 +1,7 @@
-package com.master86.Luckpermsgui.users;
+package com.bghddevelopment.LuckPermsGui.users;
 import java.util.Arrays;
 
-import com.master86.Luckpermsgui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.group.Group;

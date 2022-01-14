@@ -1,9 +1,9 @@
-package com.master86.Luckpermsgui.users;
+package com.bghddevelopment.LuckPermsGui.users;
 import java.util.*;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
-import com.master86.Luckpermsgui.util.Tools;
-import com.master86.Luckpermsgui.util.OpenGUI;
+import com.bghddevelopment.LuckPermsGui.util.OpenGUI;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.Bukkit;
@@ -29,7 +29,7 @@ public class UsersGUI implements Listener {
         String message = e.getMessage();
         editUser.remove(e.getPlayer());
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditUser.open(e.getPlayer(), message);
         }, 5);
 

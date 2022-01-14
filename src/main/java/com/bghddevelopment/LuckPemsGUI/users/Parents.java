@@ -1,12 +1,12 @@
-package com.master86.Luckpermsgui.users;
+package com.bghddevelopment.LuckPermsGui.users;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 
-import com.master86.Luckpermsgui.util.Tools;
-import com.master86.Luckpermsgui.Luckpermsgui;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.context.DefaultContextKeys;
@@ -38,7 +38,7 @@ public class Parents implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" parent add "+message);
         addParent.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditUser.open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -52,7 +52,7 @@ public class Parents implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp user "+g.getUsername()+" parent addtemp "+message);
         addTempParent.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditUser.open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -175,7 +175,7 @@ public class Parents implements Listener {
                                 current = Integer.parseInt(ChatColor.stripColor(inv.getItem(53).getItemMeta().getLore().get(1).split(" ")[1]));
 
                             int page = current;
-                            Bukkit.getScheduler().runTaskLater(Luckpermsgui.plugin, () -> {
+                            Bukkit.getScheduler().runTaskLater(LuckPermsGui.plugin, () -> {
                                 open(p, g, page);
                             }, 5);
                         }
