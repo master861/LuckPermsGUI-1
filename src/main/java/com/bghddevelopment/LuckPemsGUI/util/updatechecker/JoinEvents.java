@@ -1,6 +1,7 @@
-package com.master86.Luckpermsgui.util.updatechecker;
+package com.bghddevelopment.LuckPermsGui.util.updatechecker;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,9 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class JoinEvents implements Listener {
-    private final Luckpermsgui plugin;
+    private final LuckPermsGui plugin;
 
-    public JoinEvents(Luckpermsgui plugin) {
+    public JoinEvents(LuckPermsGui plugin) {
         this.plugin = plugin;
     }
 

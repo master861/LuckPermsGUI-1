@@ -1,5 +1,5 @@
-package com.master86.Luckpermsgui.util.updatechecker;
-import com.master86.Luckpermsgui.Luckpermsgui;
+package com.bghddevelopment.LuckPermsGui.util.updatechecker;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import org.bukkit.Bukkit;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,10 +9,10 @@ import java.util.function.Consumer;
 
 public class UpdateChecker
 {
-    private final Luckpermsgui plugin;
+    private final LuckPermsGui plugin;
     private final int resourceId;
 
-    public UpdateChecker(Luckpermsgui plugin, int resourceId) {
+    public UpdateChecker(LuckPermsGui plugin, int resourceId) {
         this.plugin = plugin;
         this.resourceId = resourceId;
     }
