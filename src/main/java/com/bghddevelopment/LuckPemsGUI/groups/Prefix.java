@@ -1,9 +1,10 @@
-package com.master86.Luckpermsgui.groups;
+package com.bghddevelopment.LuckPermsGui.groups;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.context.DefaultContextKeys;
@@ -21,8 +22,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import com.master86.Luckpermsgui.Luckpermsgui;
-import com.master86.Luckpermsgui.util.Tools;
 
 public class Prefix implements Listener {
 
@@ -37,7 +36,7 @@ public class Prefix implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp group "+g.getName()+" meta addprefix "+message);
         addPrefix.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditGroup.open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -51,7 +50,7 @@ public class Prefix implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp group "+g.getName()+" meta addtempprefix "+message);
         addTempPrefix.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             EditGroup.open(e.getPlayer(), g);
         }, 5);
         e.setCancelled(true);
@@ -170,7 +169,7 @@ public class Prefix implements Listener {
                                 current = Integer.parseInt(ChatColor.stripColor(inv.getItem(53).getItemMeta().getLore().get(1).split(" ")[1]));
 
                             int page = current;
-                            Bukkit.getScheduler().runTaskLater(Luckpermsgui.plugin, () -> {
+                            Bukkit.getScheduler().runTaskLater(LuckPermsGui.plugin, () -> {
                                 open(p, g, page);
                             }, 5);
                         }

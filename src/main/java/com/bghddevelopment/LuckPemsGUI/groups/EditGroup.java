@@ -1,8 +1,10 @@
-package com.master86.Luckpermsgui.groups;
+package com.bghddevelopment.LuckPermsGui.groups;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.bghddevelopment.LuckPermsGui.util.Tools;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.group.Group;
@@ -17,8 +19,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
-import com.master86.Luckpermsgui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 
 public class EditGroup implements Listener {
 
@@ -36,9 +37,7 @@ public class EditGroup implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp group "+g.getName()+" setweight "+message);
         setWeight.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -50,9 +49,7 @@ public class EditGroup implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp group "+g.getName()+" setdisplayname "+message);
         setName.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -64,9 +61,7 @@ public class EditGroup implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp group "+g.getName()+" rename "+message);
         rename.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -78,9 +73,7 @@ public class EditGroup implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp group "+g.getName()+" clone "+message);
         clone.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), l.getGroupManager().getGroup(message));
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), l.getGroupManager().getGroup(message)), 5);
         e.setCancelled(true);
     }
 
@@ -112,10 +105,10 @@ public class EditGroup implements Listener {
                     "&2   Permission nodes are a method of defining",
                     "&2   the access each player has on a server,",
                     "&2   in the form of a name and a true/false state."), 1);
-            ItemStack pall = Tools.button(Material.CHEST, "&6All permissions", Arrays.asList("&eClick here to see all permissions"), 1);
-            ItemStack pset = Tools.button(Material.ARROW, "&6Add permission", Arrays.asList("&eClick to add new permission"), 1);
-            ItemStack psettemp = Tools.button(Material.ARROW, "&6Add temp permission", Arrays.asList("&eClick to add new temporary permission"), 1);
-            ItemStack pcheck = Tools.button(Material.TORCH, "&6Check if group has permission", Arrays.asList("&eClick to check if group has permission"), 1);
+            ItemStack pall = Tools.button(Material.CHEST, "&6All permissions", Collections.singletonList("&eClick here to see all permissions"), 1);
+            ItemStack pset = Tools.button(Material.ARROW, "&6Add permission", Collections.singletonList("&eClick to add new permission"), 1);
+            ItemStack psettemp = Tools.button(Material.ARROW, "&6Add temp permission", Collections.singletonList("&eClick to add new temporary permission"), 1);
+            ItemStack pcheck = Tools.button(Material.TORCH, "&6Check if group has permission", Collections.singletonList("&eClick to check if group has permission"), 1);
             myInventory.setItem(9, perm);
             myInventory.setItem(10, pall);
             myInventory.setItem(11, pset);
@@ -370,7 +363,7 @@ public class EditGroup implements Listener {
                             case "Remove group":
                                 assert g != null;
                                 Tools.sendCommand(p, "lp deletegroup " + g.getName());
-                                Bukkit.getScheduler().runTaskLater(Luckpermsgui.plugin, () -> {
+                                Bukkit.getScheduler().runTaskLater(LuckPermsGui.plugin, () -> {
                                     GroupsGUI.open(p);
                                 }, 5);
                                 break;

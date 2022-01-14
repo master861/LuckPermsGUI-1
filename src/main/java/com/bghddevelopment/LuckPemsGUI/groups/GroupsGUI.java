@@ -1,9 +1,11 @@
-package com.master86.Luckpermsgui.groups;
+package com.bghddevelopment.LuckPermsGui.groups;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.master86.Luckpermsgui.util.OpenGUI;
-import com.master86.Luckpermsgui.Luckpermsgui;
+
+import com.bghddevelopment.LuckPermsGui.util.OpenGUI;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.group.Group;
@@ -17,8 +19,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import com.master86.Luckpermsgui.Luckpermsgui;
-import com.master86.Luckpermsgui.util.Tools;
 
 public class GroupsGUI implements Listener {
 
@@ -31,7 +31,7 @@ public class GroupsGUI implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp creategroup "+message);
         newGroup.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> {
             open(e.getPlayer());
         }, 5);
         e.setCancelled(true);
