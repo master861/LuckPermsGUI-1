@@ -1,8 +1,8 @@
-package com.master86.Luckpermsgui.commands;
-import com.master86.Luckpermsgui.groups.EditGroup;
-import com.master86.Luckpermsgui.tracks.EditTrack;
-import com.master86.Luckpermsgui.users.EditUser;
-import com.master86.Luckpermsgui.util.OpenGUI;
+package com.bghddevelopment.LuckPermsGui.commands;
+import com.bghddevelopment.LuckPermsGui.tracks.EditTrack;
+import com.bghddevelopment.LuckPermsGui.groups.EditGroup;
+import com.bghddevelopment.LuckPermsGui.users.EditUser;
+import com.bghddevelopment.LuckPermsGui.util.OpenGUI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
