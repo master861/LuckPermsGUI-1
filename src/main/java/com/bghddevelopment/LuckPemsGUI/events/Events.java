@@ -1,7 +1,7 @@
-package com.master86.Luckpermsgui.events;
-import com.master86.Luckpermsgui.groups.GroupsGUI;
-import com.master86.Luckpermsgui.tracks.TracksGUI;
-import com.master86.Luckpermsgui.users.UsersGUI;
+package com.bghddevelopment.LuckPermsGui.events;
+import com.bghddevelopment.LuckPermsGui.tracks.TracksGUI;
+import com.bghddevelopment.LuckPermsGui.groups.GroupsGUI;
+import com.bghddevelopment.LuckPermsGui.users.UsersGUI;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
