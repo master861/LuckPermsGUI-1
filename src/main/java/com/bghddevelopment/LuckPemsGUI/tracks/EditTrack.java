@@ -1,9 +1,7 @@
-package com.master86.Luckpermsgui.tracks;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+package com.bghddevelopment.LuckPermsGui.tracks;
+import java.util.*;
 
-import com.master86.Luckpermsgui.Luckpermsgui;
+import com.bghddevelopment.LuckPermsGui.LuckPermsGui;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.track.Track;
@@ -17,7 +15,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import com.master86.Luckpermsgui.util.Tools;
+import com.bghddevelopment.LuckPermsGui.util.Tools;
 
 public class EditTrack implements Listener {
 
@@ -35,9 +33,7 @@ public class EditTrack implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp track "+g.getName()+" append "+message);
         addgroup.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -49,9 +45,7 @@ public class EditTrack implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp track "+g.getName()+" insert "+message);
         insertgroup.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -63,9 +57,7 @@ public class EditTrack implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp track "+g.getName()+" rename "+message);
         rename.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -77,9 +69,7 @@ public class EditTrack implements Listener {
 
         Tools.sendCommand(e.getPlayer(), "lp track "+g.getName()+" clone "+message);
         clone.remove(e.getPlayer());
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Luckpermsgui.plugin, () -> {
-            open(e.getPlayer(), g);
-        }, 5);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LuckPermsGui.plugin, () -> open(e.getPlayer(), g), 5);
         e.setCancelled(true);
     }
 
@@ -97,32 +87,32 @@ public class EditTrack implements Listener {
             // ----------------------- INFO ------------------------------
 
             // ----------------------- PERMISSION ------------------------------
-            ItemStack addnewgroup = Tools.button(Material.TORCH, "&6Add group", Arrays.asList("&eClick here to add a group"), 1);
+            ItemStack addnewgroup = Tools.button(Material.TORCH, "&6Add group", Collections.singletonList("&eClick here to add a group"), 1);
             myInventory.setItem(0, addnewgroup);
 
-            ItemStack insertgroup = Tools.button(Material.ARROW, "&6Insert group", Arrays.asList("&eClick to insert a group"), 1);
+            ItemStack insertgroup = Tools.button(Material.ARROW, "&6Insert group", Collections.singletonList("&eClick to insert a group"), 1);
             myInventory.setItem(1, insertgroup);
 
-            ItemStack clear = Tools.button(Material.REDSTONE_BLOCK, "&cClear", Arrays.asList("&eRemove all groups"), 1);
+            ItemStack clear = Tools.button(Material.REDSTONE_BLOCK, "&cClear", Collections.singletonList("&eRemove all groups"), 1);
             myInventory.setItem(2, clear);
 
-            ItemStack delete = Tools.button(Material.REDSTONE, "&cDelete", Arrays.asList("&eClick to delete the track"), 1);
+            ItemStack delete = Tools.button(Material.REDSTONE, "&cDelete", Collections.singletonList("&eClick to delete the track"), 1);
             myInventory.setItem(5, delete);
 
-            ItemStack rename = Tools.button(Material.NAME_TAG, "&6Rename", Arrays.asList("&eClick to rename the track"), 1);
+            ItemStack rename = Tools.button(Material.NAME_TAG, "&6Rename", Collections.singletonList("&eClick to rename the track"), 1);
             myInventory.setItem(6, rename);
 
-            ItemStack clone = Tools.button(Material.PAPER, "&6Clone", Arrays.asList("&eClick to clone the track"), 1);
+            ItemStack clone = Tools.button(Material.PAPER, "&6Clone", Collections.singletonList("&eClick to clone the track"), 1);
             myInventory.setItem(7, clone);
             // ----------------------- PERMISSION ------------------------------
 
-            ItemStack back = Tools.button(Material.BARRIER, "&6Back", Arrays.asList(""), 1);
+            ItemStack back = Tools.button(Material.BARRIER, "&6Back", Collections.singletonList(""), 1);
             myInventory.setItem(8, back);
 
 
             int sk = 9;
             for (String g : group.getGroups()) {
-                ItemStack item = Tools.button(Material.TNT, "&6"+g, Arrays.asList("&cClick to remove"), 1);
+                ItemStack item = Tools.button(Material.TNT, "&6"+g, Collections.singletonList("&cClick to remove"), 1);
                 myInventory.setItem(sk, item);
                 sk++;
             }
@@ -140,9 +130,9 @@ public class EditTrack implements Listener {
             if (e.getView().getTitle().equals(ChatColor.AQUA+"LuckPerms track")) {
                 e.setCancelled(true);
                 if (item.hasItemMeta())
-                    if (item.getItemMeta().hasDisplayName()) {
+                    if (Objects.requireNonNull(item.getItemMeta()).hasDisplayName()) {
 
-                        String group = ChatColor.stripColor(inv.getItem(4).getItemMeta().getLore().get(0).split(" ")[1]);
+                        String group = ChatColor.stripColor(Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(inv.getItem(4)).getItemMeta()).getLore()).get(0).split(" ")[1]);
                         Track g = l.getTrackManager().getTrack(group);
 
                         String name = ChatColor.stripColor(item.getItemMeta().getDisplayName());
@@ -162,13 +152,13 @@ public class EditTrack implements Listener {
                             insertgroup.put(p, g);
                             p.closeInventory();
                         } else if (name.equals("Clear")) {
+                            assert g != null;
                             g.clearGroups();
                             open(p, g);
                         } else if (name.equals("Delete")) {
-                            Tools.sendCommand(p, "lp deletetrack "+g.getName());
-                            Bukkit.getScheduler().runTaskLater(Luckpermsgui.plugin, () -> {
-                                TracksGUI.open(p);
-                            }, 5);
+                            assert g != null;
+                            Tools.sendCommand(p, "lp delete-track "+g.getName());
+                            Bukkit.getScheduler().runTaskLater(LuckPermsGui.plugin, () -> TracksGUI.open(p), 5);
                         } else if (name.equals("Rename")) {
                             Tools.sendMessage(p, "&eWrite in chat:");
                             Tools.sendMessage(p, "&8<&7Name&8>");
@@ -182,10 +172,9 @@ public class EditTrack implements Listener {
                             clone.put(p, g);
                             p.closeInventory();
                         } else if (item.getType().equals(Material.TNT)) {
+                            assert g != null;
                             Tools.sendCommand(p, "lp track "+g.getName()+" remove "+ChatColor.stripColor(item.getItemMeta().getDisplayName()));
-                            Bukkit.getScheduler().runTaskLater(Luckpermsgui.plugin, () -> {
-                                open(p, g);
-                            }, 5);
+                            Bukkit.getScheduler().runTaskLater(LuckPermsGui.plugin, () -> open(p, g), 5);
                         }
                     }
             }
